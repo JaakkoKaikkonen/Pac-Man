@@ -10,7 +10,6 @@ namespace engine {
 	{
 	public:
 		HUD(gameDataRef data);
-		~HUD();
 
 		void drawScore(const int& pointsRemainig, const int& bigPointsRemainig);
 

@@ -59,7 +59,6 @@ namespace engine {
 		Mode _modes[8] = { Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase };
 
 		float _modeTimes[8] = { 4.0f, 20.0f, 7.0f, 20.0f, 5.0f, 60.0f, 3.0f, 1000000.0f };
-		//float _modeTimes[2] = { 1.0f, 1000000.0f };
 		
 		std::array<Ghost*, 4> _ghosts;
 

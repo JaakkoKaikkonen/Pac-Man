@@ -92,9 +92,6 @@ namespace engine {
 			_boxCounter = 0;
 		}
 
-		/*std::cout << (int)_ghost.getPosition().x / TILESIZE << ", " << (int)_ghost.getPosition().y / TILESIZE << ", ";
-		std::cout << _target.x << ", " << _target.y << std::endl;*/
-
 	}
 
 	

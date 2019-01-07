@@ -13,7 +13,6 @@ namespace engine {
 		StateMachine machine;
 		sf::RenderWindow window;
 		AssetManager assets;
-		sf::Music music;
 	};
 
 	typedef std::shared_ptr<GameData> gameDataRef;

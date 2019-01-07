@@ -11,7 +11,7 @@ namespace engine {
 	{
 		_pacman.setOrigin(_pacman.getGlobalBounds().width / 2, _pacman.getGlobalBounds().height / 2);
 		_pacman.setScale(1.25f, 1.25f);
-		_pacman.setPosition(336.0f, 636.0f);
+		_pacman.setPosition(PACMAN_START_POS);
 	}
 
 	Pacman::~Pacman()
@@ -140,9 +140,7 @@ namespace engine {
 
 			if (map[y][x] == 2) {
 				map[y][x] = 0;
-			}
-
-			if (map[y][x] == 3) {
+			} else if (map[y][x] == 3) {
 				map[y][x] = 0;
 				_power = true;
 				_powerTimer.restart();
@@ -151,8 +149,6 @@ namespace engine {
 			if (_powerTimer.getElapsedTime().asSeconds() > PACMAN_POWER_TIME) {
 				_power = false;
 			}
-
-			//std::cout << x << "\t" << y << std::endl;
 
 		}
 
@@ -177,7 +173,7 @@ namespace engine {
 	}
 
 	void Pacman::reset() {
-		_pacman.setPosition(336.0f, 636.0f);
+		_pacman.setPosition(PACMAN_START_POS);
 	}
 
 }

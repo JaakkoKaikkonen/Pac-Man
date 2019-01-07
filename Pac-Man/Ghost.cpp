@@ -49,8 +49,6 @@ namespace engine {
 
 	void Ghost::findPath(const int map[MAP_RES_Y][MAP_RES_X]) {
 
-		//std::cout << "Target: " << map[_target.y][_target.x] << std::endl;
-
 		if (!_teleport) {
 			//A* algorithm / Find shortest path
 			//Initialize Nodes
@@ -78,7 +76,6 @@ namespace engine {
 
 			//Push start to openSet
 			_openSet.push_back(start);
-
 
 
 			while (!_openSet.empty()) {
@@ -189,8 +186,6 @@ namespace engine {
 						continue;
 					}
 
-					//std::cout << "Current: " << current->x << ", " << current->y << "  " << "Neighbor: " << neighbors[i]->x << ", " << neighbors[i]->y <<  std::endl;
-
 					//This is best path so far record it
 					neighbors[i]->cameFrom = current;
 					neighbors[i]->g = tentative_gScore;
@@ -200,12 +195,6 @@ namespace engine {
 
 			}
 
-
-			//std::cout << "openSet.Size(): " << openSet.size() << ", " << "closedSet.size(): " << closedSet.size() << std::endl;
-			//std::cout << finalPath.size() << std::endl;
-			/*for (int i = _finalPath.size() - 1; i >= 0; i--) {
-				std::cout << "Final: " << finalPath[i]->x << ", " << finalPath[i]->y << std::endl;
-			}*/
 
 			//calculate movement
 			if (_finalPath.size() > 1) {
@@ -219,6 +208,7 @@ namespace engine {
 				_dirVector.y = 0;
 			}
 
+			//////////////////////////////DEBUG////////////////////////////////
 			if (_dirVector.x == 0 && _dirVector.y == 0 && mode != Mode::Flee && !_eyes) {
 				_dirVector.x = 0;
 			}
@@ -388,6 +378,7 @@ namespace engine {
 
 	void Ghost::draw() {
 		
+		//////////////////////////////////DEBUG////////////////////////////////////////////
 		sf::CircleShape point(5);
 		point.setOrigin(point.getGlobalBounds().width / 2, point.getGlobalBounds().height / 2);
 		point.setFillColor(sf::Color::Red);
@@ -403,7 +394,7 @@ namespace engine {
 
 		_data->window.draw(line, _finalPath.size(), sf::LineStrip);
 		_data->window.draw(point);
-		
+		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		_data->window.draw(_ghost);
 	}

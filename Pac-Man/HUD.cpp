@@ -32,10 +32,6 @@ namespace engine {
 
 	}
 
-	HUD::~HUD()
-	{
-	}
-
 	void HUD::drawScore(const int& pointsRemainig, const int& bigPointsRemainig) {
 		_score.setString(std::to_string(POINT_COUNT - pointsRemainig));
 		_score.setString(std::to_string(std::stoi((std::string)_score.getString()) + _scoreFromGhosts / 10 + (BIGPOINT_COUNT - bigPointsRemainig) * 5) + "0");

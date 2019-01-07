@@ -65,9 +65,11 @@ namespace engine {
 			_data->window.close();
 		}
 
-		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+		//////////////////////////////////DEBUG////////////////////////////////////////////
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 			_pacman.reset();
-		}*/
+		}
+		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 			_pacman.move(Dir::Right);
@@ -166,32 +168,23 @@ namespace engine {
 
 		_data->window.draw(_map);
 
+		//////////////////////////////////DEBUG////////////////////////////////////////////
 		//Draw grid lines
 		float y = 0;
-
 		for (int i = 0; i < MAP_RES_Y; i++) {
-
 			_line[0] = sf::Vertex(sf::Vector2f(0.0, y));
 			_line[1] = sf::Vertex(sf::Vector2f(SCREEN_WIDTH, y));
-
 			y += TILESIZE;
-
 			_data->window.draw(_line, 2, sf::Lines);
-
 		}
-
 		float x = 0;
-
 		for (int i = 0; i < MAP_RES_X; i++) {
-
 			_line[0] = sf::Vertex(sf::Vector2f(x, 0.0));
 			_line[1] = sf::Vertex(sf::Vector2f(x, SCREEN_HEIGHT));
-
 			x += TILESIZE;
-
 			_data->window.draw(_line, 2, sf::Lines);
-
 		}
+		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		//Draw points
 		int pointCount = 0;

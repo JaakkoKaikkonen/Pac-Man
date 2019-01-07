@@ -41,6 +41,7 @@ enum class Mode { Chase, Scatter, Flee };
 #define PACMAN_02 sf::IntRect(0, 0, 32, 32)
 #define PACMAN_03 sf::IntRect(66, 0, 32, 32)
 
+#define PACMAN_START_POS sf::Vector2f(336.0f, 636.0f)
 #define PACMAN_ANIMATION_TIME 0.2f
 #define PACMAN_SPEED 3.0f
 #define PACMAN_POWER_TIME 3.7f

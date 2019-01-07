@@ -10,7 +10,6 @@ namespace engine {
 	{
 	public:
 		Point() = default;
-		~Point();
 
 		void init(gameDataRef data, std::string texture);
 

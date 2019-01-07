@@ -13,8 +13,6 @@ namespace engine {
 		icon.loadFromFile(TOP_ICON_FILEPATH);
 
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
-		//_data->window.setVerticalSyncEnabled(true);
-		//_data->window.setFramerateLimit(60);
 
 		_data->window.setPosition(sf::Vector2i(500, 100));
 
@@ -39,10 +37,8 @@ namespace engine {
 		//Fonts
 		_data->assets.loadFont("Font", FONT_FILEPATH);
 
-
 		//-------------------------------------------------------------------------------------
 
-		//_data->machine.addState(stateRef(new GameState(_data)), true);
 		_data->machine.addState(stateRef(new MenuState(_data)), true);
 
 		this->run();
@@ -85,6 +81,7 @@ namespace engine {
 
 			this->_data->machine.getActiveState()->draw();
 
+			//FPS
 			//std::cout << 1 / frameTime << std::endl;
 			
 		}
