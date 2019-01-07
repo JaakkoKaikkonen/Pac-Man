@@ -7,7 +7,6 @@
 #include "Collision.hpp"
 
 
-
 namespace engine {
 
 	GameState::GameState(gameDataRef data)
@@ -43,14 +42,12 @@ namespace engine {
 	void GameState::init() {
 		std::cout << "Game state" << std::endl;
 
-
 		//Setup ghosts
 		_ghosts[0] = new Clyde(_data);
 		_ghosts[1] = new Inky(_data);
 		_ghosts[2] = new Pinky(_data);
 		_ghosts[3] = new Blinky(_data);
 
-		
 	}
 
 	void GameState::handleInput() {
@@ -136,9 +133,7 @@ namespace engine {
 					_mode = _modes[_modeIndex];
 				}
 
-
 				_pacman.update(_grid);
-
 
 				Ghost::setMode(_mode);
 
@@ -170,7 +165,7 @@ namespace engine {
 
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 		//Draw grid lines
-		float y = 0;
+		/*float y = 0;
 		for (int i = 0; i < MAP_RES_Y; i++) {
 			_line[0] = sf::Vertex(sf::Vector2f(0.0, y));
 			_line[1] = sf::Vertex(sf::Vector2f(SCREEN_WIDTH, y));
@@ -183,7 +178,7 @@ namespace engine {
 			_line[1] = sf::Vertex(sf::Vector2f(x, SCREEN_HEIGHT));
 			x += TILESIZE;
 			_data->window.draw(_line, 2, sf::Lines);
-		}
+		}*/
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		//Draw points
@@ -209,7 +204,7 @@ namespace engine {
 			_bigPointFalshTimer.restart();
 		}
 
-		if (pointCount + bigPointCount == 0) {
+		if ((pointCount + bigPointCount) == 0) {
 			_win = true;
 		}
 

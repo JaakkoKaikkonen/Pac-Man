@@ -379,7 +379,7 @@ namespace engine {
 	void Ghost::draw() {
 		
 		//////////////////////////////////DEBUG////////////////////////////////////////////
-		sf::CircleShape point(5);
+		/*sf::CircleShape point(5);
 		point.setOrigin(point.getGlobalBounds().width / 2, point.getGlobalBounds().height / 2);
 		point.setFillColor(sf::Color::Red);
 
@@ -393,7 +393,7 @@ namespace engine {
 		}
 
 		_data->window.draw(line, _finalPath.size(), sf::LineStrip);
-		_data->window.draw(point);
+		_data->window.draw(point);*/
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		_data->window.draw(_ghost);
