@@ -10,7 +10,7 @@
 namespace engine {
 
 	GameState::GameState(gameDataRef data)
-		: _data(data), _map(_data->assets.getTexture("Map")), _pacman(_data), _hud(_data), _scoreText("200", _data->assets.getFont("Font"), 18)
+		: _data(data), _map(_data->assets.getTexture("Map")), _pacman(_data), _hud(_data), _scoreText("100", _data->assets.getFont("Font"), 18)
 	{
 		_data->window.setMouseCursorVisible(false);
 
@@ -124,12 +124,14 @@ namespace engine {
 						if (Collision::checkSpriteCollision(_pacman.getSprite(), 0.7f, _ghosts[i]->getSprite(), 1.0f) && !_ghosts[i]->getEyes()) {
 							_ghosts[i]->reset();
 							_stop = true;
+							_scoreText.setString(std::to_string(std::stoi((std::string)_scoreText.getString()) * 2));
+							_hud.addToScore(std::stoi((std::string)_scoreText.getString()));
 							_ghostIndex = i;
-							_hud.addToScore(200);
 							_stopTimer.restart();
 						}
 					}
 				} else {
+					_scoreText.setString("100");
 					_mode = _modes[_modeIndex];
 				}
 
