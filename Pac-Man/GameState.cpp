@@ -63,9 +63,9 @@ namespace engine {
 		}
 
 		//////////////////////////////////DEBUG////////////////////////////////////////////
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
 			_pacman.reset();
-		}
+		}*/
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
