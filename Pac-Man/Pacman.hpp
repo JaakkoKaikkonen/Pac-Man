@@ -13,7 +13,6 @@ namespace engine {
 	{
 	public:
 		Pacman(gameDataRef data);
-		~Pacman();
 
 		void update(int map[MAP_RES_Y][MAP_RES_X]);
 

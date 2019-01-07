@@ -14,9 +14,6 @@ namespace engine {
 		_pacman.setPosition(PACMAN_START_POS);
 	}
 
-	Pacman::~Pacman()
-	{
-	}
 
 	void Pacman::update(int map[MAP_RES_Y][MAP_RES_X]) {
 
