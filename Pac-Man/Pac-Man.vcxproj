@@ -147,7 +147,6 @@
     <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Inky.cpp" />
-    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Pacman.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="Ghost.hpp" />
     <ClInclude Include="HUD.hpp" />
     <ClInclude Include="Inky.hpp" />
-    <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Pacman.hpp" />
     <ClInclude Include="Pinky.hpp" />
