@@ -1,5 +1,5 @@
 # Pac-Man
 
-c++
+C++
 
 SFML
