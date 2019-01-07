@@ -208,15 +208,7 @@ namespace engine {
 				_dirVector.y = 0;
 			}
 
-			//////////////////////////////DEBUG////////////////////////////////
-			if (_dirVector.x == 0 && _dirVector.y == 0 && mode != Mode::Flee && !_eyes) {
-				_dirVector.x = 0;
-			}
-
 		}
-
-		
-
 		
 	}
 
