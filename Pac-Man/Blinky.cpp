@@ -30,8 +30,6 @@ namespace engine {
 
 		if(!_eyes) {
 
-			_previousTarget = _target;
-
 			if (Mode::Chase == mode) {
 			
 				_target = sf::Vector2i((int)(pacmanPosition.x / TILESIZE), (int)(pacmanPosition.y / TILESIZE));

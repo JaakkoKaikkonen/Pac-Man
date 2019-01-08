@@ -67,8 +67,6 @@ namespace engine {
 
 		sf::Vector2i _target;
 
-		sf::Vector2i _previousTarget;
-
 		Dir _dir = Dir::Right;
 
 		sf::Vector2f _dirVector;

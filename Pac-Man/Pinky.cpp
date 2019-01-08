@@ -30,8 +30,6 @@ namespace engine {
 		
 		if (!_eyes) {
 
-			_previousTarget = _target;
-
 			if (Mode::Chase == mode) {
 
 				if (Dir::Right == pacmandir) {

@@ -29,8 +29,6 @@ namespace engine {
 
 		if (!_eyes) {
 
-			_previousTarget = _target;
-
 			if (Mode::Chase == mode) {
 
 				sf::Vector2i distance((int)abs(_ghost.getPosition().x / TILESIZE - pacmanPosition.x / TILESIZE), (int)abs(_ghost.getPosition().y / TILESIZE - pacmanPosition.y / TILESIZE));

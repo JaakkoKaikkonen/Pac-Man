@@ -10,7 +10,6 @@ namespace engine {
 	{
 	public:
 		MenuState(gameDataRef data);
-		~MenuState();
 
 		void init();
 
