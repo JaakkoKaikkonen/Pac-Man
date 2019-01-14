@@ -16,7 +16,7 @@ namespace engine {
 
 
 	void MenuState::init() {
-		//_data->assets.getSound("Intro").play();
+		_data->assets.getSound("Intro").play();
 	}
 
 	void MenuState::handleInput() {

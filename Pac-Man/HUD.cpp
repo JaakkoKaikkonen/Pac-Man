@@ -7,7 +7,7 @@ namespace engine {
 
 	HUD::HUD(gameDataRef data)
 		: _data(data), _score("00", _data->assets.getFont("Font"), 24), _highScoreText("HIGH SCORE", _data->assets.getFont("Font"), 24), 
-		  _highScore(" ", _data->assets.getFont("Font"), 24)
+		  _highScore(" ", _data->assets.getFont("Font"), 24), _gameOverText("GAME OVER!", _data->assets.getFont("Font"), 24)
 	{
 		_score.setOrigin(_score.getGlobalBounds().width, 0.0f);
 		_score.setPosition(168.0f, 28.0f);
@@ -29,6 +29,9 @@ namespace engine {
 
 		_highScore.setOrigin(_highScore.getGlobalBounds().width, 0.0f);
 		_highScore.setPosition(SCREEN_WIDTH / 2, 36.0f);
+
+		_gameOverText.setOrigin(_gameOverText.getGlobalBounds().width / 2, 0.0f);
+		_gameOverText.setPosition(SCREEN_WIDTH / 2, 20*TILESIZE);
 
 	}
 
@@ -54,13 +57,9 @@ namespace engine {
 		_data->window.draw(_highScore);
 
 	}
-	 
-	void HUD::addToScore(const int score) {
-		_scoreFromGhosts += score;
-	}
 
 	void HUD::saveHighScore() {
-		
+
 		//Save highscore
 		std::ofstream highScoreFile(HIGH_SCORE_FILEPATH);
 
@@ -69,7 +68,17 @@ namespace engine {
 		} else {
 			std::cout << "Highscore file not found" << std::endl;
 		}
-		
+
 	}
+
+	void HUD::drawGameOverText() {
+		_data->window.draw(_gameOverText);
+	}
+	 
+	void HUD::addToScore(const int score) {
+		_scoreFromGhosts += score;
+	}
+
+	
 
 }

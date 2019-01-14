@@ -12,7 +12,7 @@ namespace engine {
 	GameState::GameState(gameDataRef data)
 		: _data(data), _map(_data->assets.getTexture("Map")), _pacman(_data), _hud(_data), _scoreText("100", _data->assets.getFont("Font"), 18)
 	{
-		_data->window.setMouseCursorVisible(false);
+		//_data->window.setMouseCursorVisible(false);
 
 		//Setup map
 		_map.setPosition(0.0f, TILESIZE*3);
@@ -105,6 +105,8 @@ namespace engine {
 					} else {
 						_mapTimer.restart();
 					}
+				} else {
+					_gameOver = true;
 				}
 
 				if (_endTimer.getElapsedTime().asSeconds() > 2.0f) {
@@ -210,10 +212,6 @@ namespace engine {
 			_win = true;
 		}
 
-		_hud.drawScore(pointCount, bigPointCount);
-
-		_hud.drawHighScore();
-
 		if (!_stop) {
 			_pacman.draw();
 		}
@@ -228,6 +226,14 @@ namespace engine {
 				}
 			}
 		}
+
+		if (_gameOver) {
+			_hud.drawGameOverText();
+		}
+
+		_hud.drawScore(pointCount, bigPointCount);
+
+		_hud.drawHighScore();
 
 
 		_data->window.display();

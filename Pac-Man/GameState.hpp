@@ -74,6 +74,8 @@ namespace engine {
 
 		bool _win = false;
 
+		bool _gameOver = false;
+
 		sf::Clock _mapTimer;
 
 

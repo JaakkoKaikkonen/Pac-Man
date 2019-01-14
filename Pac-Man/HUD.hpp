@@ -17,6 +17,8 @@ namespace engine {
 
 		void saveHighScore();
 
+		void drawGameOverText();
+
 		void addToScore(const int score);
 
 
@@ -28,6 +30,8 @@ namespace engine {
 		sf::Text _highScoreText;
 
 		sf::Text _highScore;
+
+		sf::Text _gameOverText;
 
 		int _scoreFromGhosts = 0;
 
