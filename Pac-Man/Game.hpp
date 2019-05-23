@@ -7,7 +7,7 @@
 #include "StateMachine.hpp"
 #include "AssetManager.hpp"
 
-namespace engine {
+namespace Game {
 
 	struct GameData {
 		StateMachine machine;

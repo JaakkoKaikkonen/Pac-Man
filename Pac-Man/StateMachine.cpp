@@ -1,6 +1,6 @@
 #include "StateMachine.hpp"
 
-namespace engine {
+namespace Game {
 
 	void StateMachine::addState(stateRef newState, bool isReplacing) {
 		this->_isAdding = true;

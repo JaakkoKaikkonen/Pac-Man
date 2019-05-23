@@ -7,7 +7,7 @@
 #include "Collision.hpp"
 
 
-namespace engine {
+namespace Game {
 
 	GameState::GameState(gameDataRef data)
 		: _data(data), _map(_data->assets.getTexture("Map")), _pacman(_data), _hud(_data), _scoreText("100", _data->assets.getFont("Font"), 18)

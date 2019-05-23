@@ -5,7 +5,7 @@
 #include "Ghost.hpp"
 #include "DEFINITIONS.hpp"
 
-namespace engine {
+namespace Game {
 
 	class Blinky : public Ghost
 	{

@@ -1,6 +1,6 @@
 #include "MenuState.hpp"
 
-namespace engine {
+namespace Game {
 
 	MenuState::MenuState(gameDataRef data)
 		: _data(data), _logo(_data->assets.getTexture("Logo")), _playText("PLAY", _data->assets.getFont("Font"), 52)

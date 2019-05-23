@@ -7,7 +7,7 @@
 #include "Ghost.hpp"
 #include <array>
 
-namespace engine {
+namespace Game {
 
 	class Pacman
 	{
@@ -22,7 +22,7 @@ namespace engine {
 
 		bool isDead(std::array<Ghost*, 4> ghosts);
 
-		void reset();
+		/*void reset();*/
 
 		bool power() { return _power; }
 

@@ -2,7 +2,7 @@
 #include "Utility.hpp"
 #include <iostream>
 
-namespace engine {
+namespace Game {
 
 	Blinky::Blinky(gameDataRef data) :Ghost(data)
 	{

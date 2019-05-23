@@ -1,6 +1,6 @@
 #include "Point.hpp"
 
-namespace engine {
+namespace Game {
 
 	void Point::init(gameDataRef data, std::string texture) {
 		_data = data;

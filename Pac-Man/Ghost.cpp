@@ -4,7 +4,7 @@
 #include "Utility.hpp"
 
 
-namespace engine {
+namespace Game {
 
 	Ghost::Ghost(gameDataRef data)
 		: _data(data), _teleport1(-TILESIZE*2 + TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE), _teleport2(TILESIZE*22 - TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE),
@@ -371,6 +371,7 @@ namespace engine {
 	void Ghost::draw() {
 		
 		//////////////////////////////////DEBUG////////////////////////////////////////////
+		//Draw closest path to Pacman
 		/*sf::CircleShape point(5);
 		point.setOrigin(point.getGlobalBounds().width / 2, point.getGlobalBounds().height / 2);
 		point.setFillColor(sf::Color::Red);

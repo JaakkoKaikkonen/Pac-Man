@@ -4,7 +4,7 @@
 #include "Game.hpp"
 #include <fstream>
 
-namespace engine {
+namespace Game {
 
 	class HUD
 	{

@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-namespace engine {
+namespace Game {
 
 	HUD::HUD(gameDataRef data)
 		: _data(data), _score("00", _data->assets.getFont("Font"), 24), _highScoreText("HIGH SCORE", _data->assets.getFont("Font"), 24), 

@@ -2,7 +2,7 @@
 #include "Utility.hpp"
 #include <iostream>
 
-namespace engine {
+namespace Game {
 
 	Pinky::Pinky(gameDataRef data) :Ghost(data)
 	{

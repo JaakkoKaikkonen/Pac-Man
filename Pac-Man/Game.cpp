@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-namespace engine {
+namespace Game {
 
 	Game::Game(int width, int height, std::string title) {
 

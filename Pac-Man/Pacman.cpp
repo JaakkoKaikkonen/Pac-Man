@@ -2,7 +2,7 @@
 #include "Collision.hpp"
 #include <iostream>
 
-namespace engine {
+namespace Game {
 
 	Pacman::Pacman(gameDataRef data)
 		: _data(data), _pacman(_data->assets.getTexture("Pac-man"), PACMAN_03), _pacmanAnimation(_pacman, _pacmanAniamtionFrames, 4, PACMAN_ANIMATION_TIME),
@@ -169,8 +169,8 @@ namespace engine {
 		return false;
 	}
 
-	void Pacman::reset() {
+	/*void Pacman::reset() {
 		_pacman.setPosition(PACMAN_START_POS);
-	}
+	}*/
 
 }

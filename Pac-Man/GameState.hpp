@@ -17,7 +17,7 @@
 #include "HUD.hpp"
 
 
-namespace engine {
+namespace Game {
 
 	class GameState : public State
 	{

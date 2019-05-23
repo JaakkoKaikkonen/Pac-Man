@@ -1,6 +1,6 @@
 #include "Animation.hpp"
 
-namespace engine {
+namespace Game {
 
 	Animation::Animation(sf::Sprite& sprite, sf::IntRect* animationFrames, unsigned int size, float animationTime)
 		: _sprite(sprite), _animationFrames(animationFrames), _size(size), _animationTime(animationTime)

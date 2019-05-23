@@ -1,7 +1,7 @@
 #include "Clyde.hpp"
 #include "Utility.hpp"
 
-namespace engine {
+namespace Game {
 
 	Clyde::Clyde(gameDataRef data) :Ghost(data)
 	{

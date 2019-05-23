@@ -4,7 +4,7 @@
 #include "Game.hpp"
 #include <string>
 
-namespace engine {
+namespace Game {
 
 	class Point
 	{

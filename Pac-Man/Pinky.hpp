@@ -6,7 +6,7 @@
 #include "DEFINITIONS.hpp"
 
 
-namespace engine {
+namespace Game {
 
 	class Pinky : public Ghost
 	{

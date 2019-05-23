@@ -4,7 +4,7 @@
 #include "State.hpp"
 #include "GameState.hpp"
 
-namespace engine {
+namespace Game {
 
 	class MenuState : public State
 	{
