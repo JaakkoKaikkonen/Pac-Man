@@ -70,19 +70,14 @@ namespace Game {
 
 			accumulator += frameTime;
 
-			while (accumulator >= dt)
-			{
+			while (accumulator >= dt) {
 				this->_data->machine.getActiveState()->handleInput();
 				this->_data->machine.getActiveState()->update();
 
+				this->_data->machine.getActiveState()->draw();
+
 				accumulator -= dt;
-			
 			}
-
-			this->_data->machine.getActiveState()->draw();
-
-			//FPS
-			//std::cout << 1 / frameTime << std::endl;
 			
 		}
 
