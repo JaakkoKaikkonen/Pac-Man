@@ -21,6 +21,8 @@ namespace Game {
 	public:
 		Game(int width, int height, std::string title);
 
+	private:
+		void run();
 
 	private:
 		sf::Clock clock;
@@ -29,16 +31,6 @@ namespace Game {
 
 		gameDataRef data = std::make_shared<GameData>();
 
-		void run();
-
-
 	};
-
-
-
-
-
-
-
 
 }
