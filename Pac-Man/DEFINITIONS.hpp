@@ -32,7 +32,7 @@
 #define BIGPOINT_COUNT 4
 
 
-enum class Dir { Up, Down, Right, Left };
+enum class Dir { Right, Left, Down, Up };
 
 enum class Mode { Chase, Scatter, Flee };
 

@@ -32,54 +32,52 @@ namespace Game {
 		void draw();
 
 	private:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Sprite _map;
+		sf::Sprite map;
 
-		Pacman _pacman;
+		Pacman pacman;
 
-		HUD _hud;
+		HUD hud;
 
-		sf::Clock _stopTimer;
+		sf::Clock stopTimer;
 
-		std::array<Point, POINT_COUNT> _points;
+		std::array<Point, POINT_COUNT> points;
 
-		std::array<Point, BIGPOINT_COUNT> _bigPoints;
+		std::array<Point, BIGPOINT_COUNT> bigPoints;
 
-		sf::Clock _bigPointFalshTimer;
+		sf::Clock bigPointFalshTimer;
 
-		sf::Vertex _line[2];
+		Mode mode = Mode::Scatter;
 
-		Mode _mode = Mode::Scatter;
+		sf::Clock modeTimer;
 
-		sf::Clock _modeTimer;
+		int modeIndex = 0;
 
-		int _modeIndex = 0;
+		Mode modes[8] = { Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase };
 
-		Mode _modes[8] = { Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase, Mode::Scatter, Mode::Chase };
-
-		float _modeTimes[8] = { 4.0f, 20.0f, 7.0f, 20.0f, 5.0f, 60.0f, 3.0f, 1000000.0f };
+		float modeTimes[8] = { 4.0f, 20.0f, 7.0f, 20.0f, 5.0f, 60.0f, 3.0f, 1000000.0f };
 		
-		std::array<Ghost*, 4> _ghosts;
+		std::array<Ghost*, 4> ghosts;
 
-		sf::Text _scoreText;
+		sf::Text scoreText;
 
-		sf::Clock _endTimer;
+		sf::Clock endTimer;
 
-		bool _stop = false;
+		bool stop = false;
 
-		int _ghostIndex;
+		int ghostIndex;
 
-		bool _highScoreSaved = false;
+		bool highScoreSaved = false;
 
-		bool _win = false;
+		bool win = false;
 
-		bool _gameOver = false;
+		bool gameOver = false;
 
-		sf::Clock _mapTimer;
+		sf::Clock mapTimer;
 
 
-		int _grid[MAP_RES_Y][MAP_RES_X] = {
+		int grid[MAP_RES_Y][MAP_RES_X] = {
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},

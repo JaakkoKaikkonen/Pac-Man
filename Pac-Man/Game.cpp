@@ -12,34 +12,34 @@ namespace Game {
 		sf::Image icon;
 		icon.loadFromFile(TOP_ICON_FILEPATH);
 
-		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+		data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
 
-		_data->window.setPosition(sf::Vector2i(500, 100));
+		data->window.setPosition(sf::Vector2i(500, 100));
 
-		_data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+		data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
 		srand(time(NULL));
 
 		//Load Resources ----------------------------------------------------------------------
 
 		//Textures
-		_data->assets.loadTexture("Map", MAP_FILEPATH);
-		_data->assets.loadTexture("Map_white", MAP_WHITE_FILEPATH);
-		_data->assets.loadTexture("Pac-man", PACMAN_FILEPATH);
-		_data->assets.loadTexture("Point", POINT_FILEPATH);
-		_data->assets.loadTexture("Big_point", BIG_POINT_FILEPATH);
-		_data->assets.loadTexture("Ghost", GHOST_FILEPATH);
-		_data->assets.loadTexture("Logo", LOGO_FILEPATH);
+		data->assets.loadTexture("Map", MAP_FILEPATH);
+		data->assets.loadTexture("Map_white", MAP_WHITE_FILEPATH);
+		data->assets.loadTexture("Pac-man", PACMAN_FILEPATH);
+		data->assets.loadTexture("Point", POINT_FILEPATH);
+		data->assets.loadTexture("Big_point", BIG_POINT_FILEPATH);
+		data->assets.loadTexture("Ghost", GHOST_FILEPATH);
+		data->assets.loadTexture("Logo", LOGO_FILEPATH);
 
 		//Sounds
-		_data->assets.loadSound("Intro", INTRO_MUSIC_FILEPATH);
+		data->assets.loadSound("Intro", INTRO_MUSIC_FILEPATH);
 
 		//Fonts
-		_data->assets.loadFont("Font", FONT_FILEPATH);
+		data->assets.loadFont("Font", FONT_FILEPATH);
 
 		//-------------------------------------------------------------------------------------
 
-		_data->machine.addState(stateRef(new MenuState(_data)), true);
+		data->machine.addState(stateRef(new MenuState(data)), true);
 
 		this->run();
 	}
@@ -47,16 +47,16 @@ namespace Game {
 	void Game::run() {
 		float newTime, frameTime;
 
-		float currentTime = this->_clock.getElapsedTime().asSeconds();
+		float currentTime = this->clock.getElapsedTime().asSeconds();
 
 		float accumulator = dt;
 
 		
-		while (this->_data->window.isOpen()) {
+		while (this->data->window.isOpen()) {
 
-			this->_data->machine.processStateChanges();
+			this->data->machine.processStateChanges();
 
-			newTime = this->_clock.getElapsedTime().asSeconds();
+			newTime = this->clock.getElapsedTime().asSeconds();
 
 			frameTime = newTime - currentTime;
 
@@ -69,10 +69,10 @@ namespace Game {
 			accumulator += frameTime;
 
 			while (accumulator >= dt) {
-				this->_data->machine.getActiveState()->handleInput();
-				this->_data->machine.getActiveState()->update();
+				this->data->machine.getActiveState()->handleInput();
+				this->data->machine.getActiveState()->update();
 
-				this->_data->machine.getActiveState()->draw();
+				this->data->machine.getActiveState()->draw();
 
 				accumulator -= dt;
 			}

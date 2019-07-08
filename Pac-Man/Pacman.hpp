@@ -24,38 +24,38 @@ namespace Game {
 
 		/*void reset();*/
 
-		bool power() { return _power; }
+		bool power() { return powerOn; }
 
-		sf::Vector2f getPosition() { return _pacman.getPosition(); }
+		sf::Vector2f getPosition() { return pacman.getPosition(); }
 
-		sf::Sprite& getSprite() { return _pacman; }
+		sf::Sprite& getSprite() { return pacman; }
 
-		Dir& getDir() { return _dir2; }
+		Dir& getDir() { return dir2; }
 
 	private:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Sprite _pacman;
+		sf::Sprite pacman;
 
-		sf::Vector2f _previousPos;
+		sf::Vector2f previousPos;
 
-		sf::IntRect _pacmanAniamtionFrames[4] = { PACMAN_01 , PACMAN_02 , PACMAN_01, PACMAN_03 };
+		sf::IntRect pacmanAniamtionFrames[4] = { PACMAN_01 , PACMAN_02 , PACMAN_01, PACMAN_03 };
 
-		Animation _pacmanAnimation;
+		Animation pacmanAnimation;
 
-		sf::IntRect _teleport1, _teleport2;
+		sf::IntRect teleport1, teleport2;
 
-		sf::Clock _teleportTimer;
+		sf::Clock teleportTimer;
 
-		Dir _dir1;
+		Dir dir1;
 
-		Dir _dir2;
+		Dir dir2;
 
-		bool _power = false;
+		bool powerOn = false;
 
-		sf::Clock _powerTimer;
+		sf::Clock powerTimer;
 
-		bool _stopped = true;
+		bool stopped = true;
 
 	};
 

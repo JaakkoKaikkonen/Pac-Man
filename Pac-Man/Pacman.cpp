@@ -5,57 +5,59 @@
 namespace Game {
 
 	Pacman::Pacman(gameDataRef data)
-		: _data(data), _pacman(_data->assets.getTexture("Pac-man"), PACMAN_03), _pacmanAnimation(_pacman, _pacmanAniamtionFrames, 4, PACMAN_ANIMATION_TIME),
-		_teleport1(-TILESIZE*4, TILESIZE*16 + TILESIZE/2, TILESIZE*4 + 5, TILESIZE*2),
-		_teleport2(SCREEN_WIDTH - 5, TILESIZE*16 + TILESIZE/2, TILESIZE*4, TILESIZE*2)
+		: data(data),
+		  pacman(data->assets.getTexture("Pac-man"), PACMAN_03),
+		  pacmanAnimation(pacman, pacmanAniamtionFrames, 4, PACMAN_ANIMATION_TIME),
+		  teleport1(-TILESIZE*4, TILESIZE*16 + TILESIZE/2, TILESIZE*4 + 5, TILESIZE*2),
+		  teleport2(SCREEN_WIDTH - 5, TILESIZE*16 + TILESIZE/2, TILESIZE*4, TILESIZE*2)
 	{
-		_pacman.setOrigin(_pacman.getGlobalBounds().width / 2, _pacman.getGlobalBounds().height / 2);
-		_pacman.setScale(1.25f, 1.25f);
-		_pacman.setPosition(PACMAN_START_POS);
+		pacman.setOrigin(pacman.getGlobalBounds().width / 2, pacman.getGlobalBounds().height / 2);
+		pacman.setScale(1.25f, 1.25f);
+		pacman.setPosition(PACMAN_START_POS);
 	}
 
 
 	void Pacman::update(int map[MAP_RES_Y][MAP_RES_X]) {
 
-		if (!_stopped) {
+		if (!stopped) {
 
 			//check if pacman should animate
-			if (_previousPos == _pacman.getPosition()) {
-				_pacman.setTextureRect(PACMAN_01);
+			if (previousPos == pacman.getPosition()) {
+				pacman.setTextureRect(PACMAN_01);
 			} else {
-				_pacmanAnimation.animate();
+				pacmanAnimation.animate();
 			}
 
 			//Teleports
-			if (_teleport1.contains((int)(_pacman.getPosition().x - _pacman.getGlobalBounds().width / 2), (int)_pacman.getPosition().y)) {
-				if (_teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
-					_pacman.move(PACMAN_SPEED, 0.0f);
+			if (teleport1.contains((int)(pacman.getPosition().x - pacman.getGlobalBounds().width / 2), (int)pacman.getPosition().y)) {
+				if (teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
+					pacman.move(PACMAN_SPEED, 0.0f);
 					return;
 				}
-				_pacman.move(-PACMAN_SPEED, 0.0f);
-				if (_pacman.getPosition().x + _pacman.getGlobalBounds().width < 0) {
-					_pacman.setPosition(_teleport2.left + _pacman.getGlobalBounds().width, _teleport2.top + _pacman.getGlobalBounds().height / 2 + 4);
-					_teleportTimer.restart();
+				pacman.move(-PACMAN_SPEED, 0.0f);
+				if (pacman.getPosition().x + pacman.getGlobalBounds().width < 0) {
+					pacman.setPosition(teleport2.left + pacman.getGlobalBounds().width, teleport2.top + pacman.getGlobalBounds().height / 2 + 4);
+					teleportTimer.restart();
 				}
 				return;
 			}
 
-			if (_teleport2.contains((int)(_pacman.getPosition().x + _pacman.getGlobalBounds().width / 2), (int)_pacman.getPosition().y)) {
-				if (_teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
-					_pacman.move(-PACMAN_SPEED, 0.0f);
+			if (teleport2.contains((int)(pacman.getPosition().x + pacman.getGlobalBounds().width / 2), (int)pacman.getPosition().y)) {
+				if (teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
+					pacman.move(-PACMAN_SPEED, 0.0f);
 					return;
 				}
-				_pacman.move(PACMAN_SPEED, 0.0f);
-				if (_pacman.getPosition().x - _pacman.getGlobalBounds().width > SCREEN_WIDTH) {
-					_pacman.setPosition(_teleport1.left + _pacman.getGlobalBounds().width + 20, _teleport1.top + _pacman.getGlobalBounds().height / 2 + 4);
-					_teleportTimer.restart();
+				pacman.move(PACMAN_SPEED, 0.0f);
+				if (pacman.getPosition().x - pacman.getGlobalBounds().width > SCREEN_WIDTH) {
+					pacman.setPosition(teleport1.left + pacman.getGlobalBounds().width + 20, teleport1.top + pacman.getGlobalBounds().height / 2 + 4);
+					teleportTimer.restart();
 				}
 				return;
 			}
 
 
 			//Save previous position
-			_previousPos = _pacman.getPosition();
+			previousPos = pacman.getPosition();
 
 
 			int x, y;
@@ -63,88 +65,88 @@ namespace Game {
 			//Movement
 			for (int tries = 0; tries < 2; tries++) {
 
-				switch (_dir1) {
+				switch (dir1) {
 
 				case Dir::Right:
-					_pacman.move(PACMAN_SPEED, 0.0f);
-					_pacman.setRotation(0.0f);
+					pacman.move(PACMAN_SPEED, 0.0f);
+					pacman.setRotation(0.0f);
 					break;
 				case Dir::Left:
-					_pacman.move(-PACMAN_SPEED, 0.0f);
-					_pacman.setRotation(180.0f);
-					break;
-				case Dir::Up:
-					_pacman.move(0.0f, -PACMAN_SPEED);
-					_pacman.setRotation(-90.0f);
+					pacman.move(-PACMAN_SPEED, 0.0f);
+					pacman.setRotation(180.0f);
 					break;
 				case Dir::Down:
-					_pacman.move(0.0f, PACMAN_SPEED);
-					_pacman.setRotation(90.0f);
+					pacman.move(0.0f, PACMAN_SPEED);
+					pacman.setRotation(90.0f);
+					break;
+				case Dir::Up:
+					pacman.move(0.0f, -PACMAN_SPEED);
+					pacman.setRotation(-90.0f);
 				}
 
 
 				//Check Collision
 
-				x = (int)(_pacman.getPosition().x + (TILESIZE / 2 - 1)) / TILESIZE;
-				y = (int)(_pacman.getPosition().y + (TILESIZE / 2 - 1)) / TILESIZE;
+				x = (int)(pacman.getPosition().x + (TILESIZE / 2 - 1)) / TILESIZE;
+				y = (int)(pacman.getPosition().y + (TILESIZE / 2 - 1)) / TILESIZE;
 
 				if (map[y][x] == 1) {
-					_pacman.setPosition(_previousPos);
-					std::swap(_dir1, _dir2);
+					pacman.setPosition(previousPos);
+					std::swap(dir1, dir2);
 					continue;
 				}
 
-				x = (int)(_pacman.getPosition().x + (TILESIZE / 2 - 1)) / TILESIZE;
-				y = (int)(_pacman.getPosition().y - (TILESIZE / 2 - 1)) / TILESIZE;
+				x = (int)(pacman.getPosition().x + (TILESIZE / 2 - 1)) / TILESIZE;
+				y = (int)(pacman.getPosition().y - (TILESIZE / 2 - 1)) / TILESIZE;
 
 				if (map[y][x] == 1) {
-					_pacman.setPosition(_previousPos);
-					std::swap(_dir1, _dir2);
+					pacman.setPosition(previousPos);
+					std::swap(dir1, dir2);
 					continue;
 				} 
 
-				x = (int)(_pacman.getPosition().x - (TILESIZE / 2 - 1)) / TILESIZE;
-				y = (int)(_pacman.getPosition().y + (TILESIZE / 2 - 1)) / TILESIZE;
+				x = (int)(pacman.getPosition().x - (TILESIZE / 2 - 1)) / TILESIZE;
+				y = (int)(pacman.getPosition().y + (TILESIZE / 2 - 1)) / TILESIZE;
 
 				if (map[y][x] == 1) {
-					_pacman.setPosition(_previousPos);
-					std::swap(_dir1, _dir2);
+					pacman.setPosition(previousPos);
+					std::swap(dir1, dir2);
 					continue;
 				} 
 
-				x = (int)(_pacman.getPosition().x - (TILESIZE / 2 - 1)) / TILESIZE;
-				y = (int)(_pacman.getPosition().y - (TILESIZE / 2 - 1)) / TILESIZE;
+				x = (int)(pacman.getPosition().x - (TILESIZE / 2 - 1)) / TILESIZE;
+				y = (int)(pacman.getPosition().y - (TILESIZE / 2 - 1)) / TILESIZE;
 
 				if (map[y][x] == 1) {
-					_pacman.setPosition(_previousPos);
-					std::swap(_dir1, _dir2);
+					pacman.setPosition(previousPos);
+					std::swap(dir1, dir2);
 					continue;
 				} 
 
 
 				if (tries == 1) {
-					std::swap(_dir1, _dir2);
+					std::swap(dir1, dir2);
 				} else {
-					_dir2 = _dir1;
+					dir2 = dir1;
 				}
 				
 				break;
 			}
 
 			//Check if pacman should eat point
-			x = (int)_pacman.getPosition().x / TILESIZE;
-			y = (int)_pacman.getPosition().y / TILESIZE;
+			x = (int)pacman.getPosition().x / TILESIZE;
+			y = (int)pacman.getPosition().y / TILESIZE;
 
 			if (map[y][x] == 2) {
 				map[y][x] = 0;
 			} else if (map[y][x] == 3) {
 				map[y][x] = 0;
-				_power = true;
-				_powerTimer.restart();
+				powerOn = true;
+				powerTimer.restart();
 			}
 
-			if (_powerTimer.getElapsedTime().asSeconds() > PACMAN_POWER_TIME) {
-				_power = false;
+			if (powerTimer.getElapsedTime().asSeconds() > PACMAN_POWER_TIME) {
+				powerOn = false;
 			}
 
 		}
@@ -152,17 +154,17 @@ namespace Game {
 	}
 
 	void Pacman::move(Dir dir) {
-		_stopped = false;
-		_dir1 = dir;
+		stopped = false;
+		dir1 = dir;
 	}
 
 	void Pacman::draw() {
-		_data->window.draw(_pacman);
+		data->window.draw(pacman);
 	}
 
 	bool Pacman::isDead(std::array<Ghost*, 4> ghosts) {
 		for (int i = 0; i < ghosts.size(); i++) {
-			if (Collision::checkSpriteCollision(_pacman, 0.3f, ghosts[i]->getSprite(), 1.0f) && !ghosts[i]->getEyes()) {
+			if (Collision::checkSpriteCollision(pacman, 0.3f, ghosts[i]->getSprite(), 1.0f) && !ghosts[i]->getEyes()) {
 				return true;
 			}
 		}
@@ -170,7 +172,7 @@ namespace Game {
 	}
 
 	/*void Pacman::reset() {
-		_pacman.setPosition(PACMAN_START_POS);
+		pacman.setPosition(PACMAN_START_POS);
 	}*/
 
 }

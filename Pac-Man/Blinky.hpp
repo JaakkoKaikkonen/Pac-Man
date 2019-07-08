@@ -19,11 +19,11 @@ namespace Game {
 		bool isFree() override;
 
 	private:
-		int _boxCounter = 0;
-		bool _go = false;
-		bool _start = true;
+		int boxCounter = 0;
+		bool go = false;
+		bool start = true;
 
-		Dir _spot;
+		Dir spot;
 		
 	};
 

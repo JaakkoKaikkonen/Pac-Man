@@ -23,12 +23,12 @@ namespace Game {
 		stateRef& getActiveState();
 
 	private:
-		std::stack<stateRef> _states;
-		stateRef _newState;
+		std::stack<stateRef> states;
+		stateRef newState;
 
-		bool _isRemoving;
-		bool _isAdding;
-		bool _isReplacing;
+		bool isRemoving;
+		bool isAdding;
+		bool isReplacing;
 
 	};
 

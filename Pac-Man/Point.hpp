@@ -16,9 +16,9 @@ namespace Game {
 		void draw(const int x, const int y);
 
 	private:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Sprite _point;
+		sf::Sprite point;
 
 	};
 

@@ -18,11 +18,11 @@ namespace Game {
 		void draw();
 
 	private:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Sprite _logo;
+		sf::Sprite logo;
 
-		sf::Text _playText;
+		sf::Text playText;
 
 	};
 

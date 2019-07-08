@@ -11,20 +11,20 @@ namespace Game {
 
 		void animate();
 
-		void reset() { _animationiterator = 0; }
+		void reset() { animationiterator = 0; }
 
 	private:
-		sf::Clock _clock;
+		sf::Clock clock;
 
-		sf::Sprite& _sprite;
+		sf::Sprite& sprite;
 
-		sf::IntRect* _animationFrames;
+		sf::IntRect* animationFrames;
 
-		unsigned int _size;
+		unsigned int size;
 
-		float _animationTime;
+		float animationTime;
 
-		unsigned int _animationiterator = 0;
+		unsigned int animationiterator = 0;
 	};
 
 }

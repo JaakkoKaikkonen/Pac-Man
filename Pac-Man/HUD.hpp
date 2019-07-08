@@ -23,17 +23,17 @@ namespace Game {
 
 
 	private:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Text _score;
+		sf::Text score;
 
-		sf::Text _highScoreText;
+		sf::Text highScoreText;
 
-		sf::Text _highScore;
+		sf::Text highScore;
 
-		sf::Text _gameOverText;
+		sf::Text gameOverText;
 
-		int _scoreFromGhosts = 0;
+		int scoreFromGhosts = 0;
 
 	};
 

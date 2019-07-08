@@ -23,10 +23,10 @@ namespace Game {
 		sf::Sound& getSound(std::string name);
 
 	private:
-		std::map<std::string, sf::Texture> _textures;
-		std::map<std::string, sf::Font> _fonts;
-		std::map<std::string, sf::SoundBuffer> _soundBuffers;
-		std::map<std::string, sf::Sound> _sounds;
+		std::map<std::string, sf::Texture> textures;
+		std::map<std::string, sf::Font> fonts;
+		std::map<std::string, sf::SoundBuffer> soundBuffers;
+		std::map<std::string, sf::Sound> sounds;
 
 	};
 

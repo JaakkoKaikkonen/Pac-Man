@@ -19,12 +19,12 @@ namespace Game {
 		bool isFree() override;
 
 	private:
-		int _boxCounter = 0;
-		bool _go = false;
+		int boxCounter = 0;
+		bool go = false;
 
-		sf::Clock _startTimer;
+		sf::Clock startTimer;
 
-		Dir _spot;
+		Dir spot;
 
 	};
 

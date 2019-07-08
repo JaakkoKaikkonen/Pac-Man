@@ -34,11 +34,11 @@ namespace Game {
 
 		void disableTurn();
 
-		sf::Vector2f getPosition() { return _ghost.getPosition(); }
+		sf::Vector2f getPosition() { return ghost.getPosition(); }
 
-		sf::Sprite& getSprite() { return _ghost; }
+		sf::Sprite& getSprite() { return ghost; }
 
-		bool getEyes() { return _eyes;  }
+		bool getEyes() { return eyes;  }
 
 		virtual void setTarget(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]) = 0;
 
@@ -61,24 +61,24 @@ namespace Game {
 		int hScore(Node* a, Node* b);
 
 	protected:
-		gameDataRef _data;
+		gameDataRef data;
 
-		sf::Sprite _ghost;
+		sf::Sprite ghost;
 
-		sf::Vector2i _target;
+		sf::Vector2i target;
 
-		Dir _dir = Dir::Right;
+		Dir dir = Dir::Right;
 
-		sf::Vector2f _dirVector;
+		sf::Vector2f dirVector;
 
-		sf::IntRect _animationFramesRight[2];
-		sf::IntRect _animationFramesLeft[2];
-		sf::IntRect _animationFramesUp[2];
-		sf::IntRect _animationFramesDown[2];
+		sf::IntRect animationFramesRight[2];
+		sf::IntRect animationFramesLeft[2];
+		sf::IntRect animationFramesUp[2];
+		sf::IntRect animationFramesDown[2];
 
-		bool _eyes = false;
+		bool eyes = false;
 		
-		bool _teleport = false;
+		bool teleporting = false;
 
 		static bool turn;
 
@@ -91,27 +91,27 @@ namespace Game {
 		static int counter;
 
 	private:
-		Node _grid[MAP_RES_X][MAP_RES_Y];
+		Node grid[MAP_RES_X][MAP_RES_Y];
 
-		std::vector<Node*> _closedSet;
+		std::vector<Node*> closedSet;
 
-		std::vector<Node*> _openSet;
+		std::vector<Node*> openSet;
 
-		std::vector<Node*> _finalPath;
+		std::vector<Node*> finalPath;
 
-		sf::IntRect _teleport1, _teleport2;
+		sf::IntRect teleport1, teleport2;
 
-		sf::Clock _teleportTimer;
+		sf::Clock teleportTimer;
 
-		sf::IntRect _animationFramesFlee01[2];
-		sf::IntRect _animationFramesFlee02[4];
+		sf::IntRect animationFramesFlee01[2];
+		sf::IntRect animationFramesFlee02[4];
 
-		Animation _animationRight;
-		Animation _animationLeft;
-		Animation _animationUp;
-		Animation _animationDown;
-		Animation _fleeAnimation01;
-		Animation _fleeAnimation02;
+		Animation animationRight;
+		Animation animationLeft;
+		Animation animationUp;
+		Animation animationDown;
+		Animation fleeAnimation01;
+		Animation fleeAnimation02;
 
 	};
 

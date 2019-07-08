@@ -3,15 +3,14 @@
 namespace Game {
 
 	void Point::init(gameDataRef data, std::string texture) {
-		_data = data;
-		_point.setTexture(_data->assets.getTexture(texture));
-		_point.setOrigin(_point.getGlobalBounds().width / 2, _point.getGlobalBounds().height / 2);
+		this->data = data;
+		point.setTexture(data->assets.getTexture(texture));
+		point.setOrigin(point.getGlobalBounds().width / 2, point.getGlobalBounds().height / 2);
 	}
 
 	void Point::draw(const int x, const int y) {
-		_point.setPosition((float)x, (float)y);
-		_data->window.draw(_point);
+		point.setPosition((float)x, (float)y);
+		data->window.draw(point);
 	}
-
 
 }
