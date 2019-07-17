@@ -7,7 +7,6 @@ namespace Game {
 		  logo(data->assets.getTexture("Logo")),
 		  playText("PLAY", data->assets.getFont("Font"), 52)
 	{
-		data->window.setMouseCursorVisible(true);
 
 		logo.setOrigin(logo.getGlobalBounds().width / 2, logo.getGlobalBounds().height / 2);
 		logo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 5);

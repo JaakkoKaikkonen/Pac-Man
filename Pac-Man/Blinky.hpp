@@ -24,7 +24,7 @@ namespace Game {
 		bool start = true;
 
 		Dir spot;
-		
+
 	};
 
 }

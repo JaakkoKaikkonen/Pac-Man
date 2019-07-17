@@ -12,6 +12,8 @@ namespace Game {
 		ghost.setScale(1.25f, 1.25f);
 		ghost.setPosition(TILESIZE * 14, TILESIZE * 17 + TILESIZE / 2);
 
+		ghostColor = sf::Color::Magenta;
+
 		animationFramesRight[0] = PINKY_RIGHT_01;
 		animationFramesRight[1] = PINKY_RIGHT_02;
 

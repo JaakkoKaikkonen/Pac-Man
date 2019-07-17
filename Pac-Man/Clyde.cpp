@@ -11,6 +11,8 @@ namespace Game {
 		ghost.setScale(1.25f, 1.25f);
 		ghost.setPosition(TILESIZE * 16, TILESIZE * 17 + TILESIZE / 2);
 
+		ghostColor = sf::Color::Yellow;
+
 		animationFramesRight[0] = CLYDE_RIGHT_01;
 		animationFramesRight[1] = CLYDE_RIGHT_02;
 

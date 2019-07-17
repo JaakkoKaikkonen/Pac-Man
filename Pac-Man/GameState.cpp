@@ -15,12 +15,10 @@ namespace Game {
 		  pacman(data),
 		  hud(data), scoreText("100", data->assets.getFont("Font"), 18)
 	{
-		//_data->window.setMouseCursorVisible(false);
 
 		//Setup map
 		map.setPosition(0.0f, TILESIZE*3);
 
-		
 		//Init points
 		for (int i = 0; i < points.size(); i++) {
 			points[i].init(data, "Point");
@@ -33,7 +31,6 @@ namespace Game {
 		//Set up score sprite
 		scoreText.setOrigin(scoreText.getGlobalBounds().width / 2, scoreText.getGlobalBounds().height / 2);
 		scoreText.setFillColor(sf::Color::Cyan);
-		
 	}
 
 	GameState::~GameState() {
@@ -43,7 +40,6 @@ namespace Game {
 	}
 
 	void GameState::init() {
-		std::cout << "Game state" << std::endl;
 
 		//Setup ghosts
 		ghosts[0] = new Clyde(data);
@@ -67,7 +63,7 @@ namespace Game {
 
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-			_pacman.reset();
+			pacman.reset();
 		}*/
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 
@@ -130,6 +126,7 @@ namespace Game {
 							ghosts[i]->reset();
 							stop = true;
 							scoreText.setString(std::to_string(std::stoi((std::string)scoreText.getString()) * 2));
+							scoreText.setOrigin(scoreText.getGlobalBounds().width / 2, scoreText.getGlobalBounds().height / 2);
 							hud.addToScore(std::stoi((std::string)scoreText.getString()));
 							ghostIndex = i;
 							stopTimer.restart();

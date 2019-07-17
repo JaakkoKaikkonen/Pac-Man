@@ -26,7 +26,6 @@ namespace Game {
 
 		Dir spot;
 
-
 	};
 
 }

@@ -56,6 +56,7 @@ namespace Game {
 
 		if (!teleporting) {
 			//A* algorithm / Find shortest path
+
 			//Initialize Nodes
 			for (int i = 0; i < MAP_RES_X; i++) {
 				for (int j = 0; j < MAP_RES_Y; j++) {
@@ -70,8 +71,6 @@ namespace Game {
 
 			//Set start
 			Node* start = &grid[(int)(ghost.getPosition().x / TILESIZE)][(int)(ghost.getPosition().y / TILESIZE)];
-
-			//std::cout << _target.x << ", " << _target.y << std::endl;
 
 			//Set goal
 			Node* goal = &grid[target.x][target.y];
@@ -370,12 +369,12 @@ namespace Game {
 		//Draw closest path to Pacman
 		sf::CircleShape point(5);
 		point.setOrigin(point.getGlobalBounds().width / 2, point.getGlobalBounds().height / 2);
-		point.setFillColor(sf::Color::Red);
+		point.setFillColor(ghostColor);
 
 		sf::Vertex line[100];
 
 		for (int i = 0; i < finalPath.size(); i++) {
-			line[i] = sf::Vertex(sf::Vector2f(float(finalPath[i]->x * TILESIZE + TILESIZE / 2), float(finalPath[i]->y * TILESIZE + TILESIZE / 2)), sf::Color::Red);
+			line[i] = sf::Vertex(sf::Vector2f(float(finalPath[i]->x * TILESIZE + TILESIZE / 2), float(finalPath[i]->y * TILESIZE + TILESIZE / 2)), ghostColor);
 		}
 		if (finalPath.size()) {
 			point.setPosition(float(finalPath[0]->x * TILESIZE + TILESIZE / 2), float(finalPath[0]->y * TILESIZE + TILESIZE / 2));
