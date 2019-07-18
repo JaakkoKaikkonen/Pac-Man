@@ -59,13 +59,15 @@ namespace Game {
 				//If target == its own position -> set new target
 				if (target == (sf::Vector2i)ghost.getPosition() / TILESIZE) {
 					target = INKYS_CORNER;
+					if (INKYS_CORNER == (sf::Vector2i)ghost.getPosition() / TILESIZE) {
+						target = sf::Vector2i(INKYS_CORNER.x - 2, INKYS_CORNER.y);
+					}
 				}
 
 			} else if (Mode::Scatter == mode) {
 
 				if (((sf::Vector2i)ghost.getPosition() / TILESIZE) == INKYS_CORNER) {
-					target.x = INKYS_CORNER.x - 2;
-					target.y = INKYS_CORNER.y;
+					target = sf::Vector2i(INKYS_CORNER.x - 2, INKYS_CORNER.y);
 				} else {
 					target = INKYS_CORNER;
 				}

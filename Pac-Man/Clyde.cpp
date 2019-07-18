@@ -46,15 +46,13 @@ namespace Game {
 
 				//If target == its own position -> set new target
 				if (target == (sf::Vector2i)ghost.getPosition() / TILESIZE) {
-					target.x = CLYDES_CORNER.x + 2;
-					target.y = CLYDES_CORNER.y;
+					target = sf::Vector2i(CLYDES_CORNER.x + 2, CLYDES_CORNER.y);
 				}
 
 			} else if (Mode::Scatter == mode) {
 
 				if (((sf::Vector2i)ghost.getPosition() / TILESIZE) == CLYDES_CORNER) {
-					target.x = CLYDES_CORNER.x + 2;
-					target.y = CLYDES_CORNER.y;
+					target = sf::Vector2i(CLYDES_CORNER.x + 2, CLYDES_CORNER.y);
 				} else {
 					target = CLYDES_CORNER;
 				}

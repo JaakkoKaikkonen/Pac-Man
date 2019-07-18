@@ -30,7 +30,7 @@ namespace Game {
 
 	void Blinky::setTarget(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]) {
 
-		if(!eyes) {
+		if (!eyes) {
 
 			if (Mode::Chase == mode) {
 			
@@ -42,8 +42,7 @@ namespace Game {
 			} else if (Mode::Scatter == mode) {
 
 				if (((sf::Vector2i)ghost.getPosition() / TILESIZE) == BLINKYS_CORNER) {
-					target.x = BLINKYS_CORNER.x - 2;
-					target.y = BLINKYS_CORNER.y;
+					target = sf::Vector2i(BLINKYS_CORNER.x - 2, BLINKYS_CORNER.y);
 				} else {
 					target = BLINKYS_CORNER;
 				}
