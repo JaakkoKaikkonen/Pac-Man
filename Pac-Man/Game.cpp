@@ -18,7 +18,7 @@ namespace Game {
 
 		data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
-		srand(time(NULL));
+		srand((unsigned int)time(NULL));
 
 		//Load Resources ----------------------------------------------------------------------
 

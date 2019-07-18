@@ -142,7 +142,7 @@ namespace Game {
 				}
 
 				//Check if neighbor is a wall
-				for (int i = neighbors.size() - 1; i >= 0; i--) {
+				for (int i = (int)neighbors.size() - 1; i >= 0; i--) {
 					if (map[neighbors[i]->y][neighbors[i]->x] == 1) {
 						neighbors[i] = neighbors[neighbors.size() - 1];
 						neighbors.pop_back();
