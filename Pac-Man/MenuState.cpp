@@ -9,7 +9,7 @@ namespace Game {
 	{
 
 		logo.setOrigin(logo.getGlobalBounds().width / 2, logo.getGlobalBounds().height / 2);
-		logo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 5);
+		logo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 6);
 
 		playText.setOrigin(playText.getGlobalBounds().width / 2, playText.getGlobalBounds().height / 2);
 		playText.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);

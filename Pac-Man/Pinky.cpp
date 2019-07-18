@@ -88,11 +88,10 @@ namespace Game {
 
 						do {
 							target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
+							if (map[target.y][target.x] == 1) {
+								this->fixTarget(map);
+							}
 						} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
-
-						if (map[target.y][target.x] == 1) {
-							this->fixTarget(map);
-						}
 
 					}
 
