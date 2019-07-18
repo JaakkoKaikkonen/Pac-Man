@@ -75,11 +75,16 @@ namespace Game {
 
 				} else {
 
-					if (((sf::Vector2i)ghost.getPosition() / TILESIZE) == target) {
-						target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
+					if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+
+						do {
+							target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
+						} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
+
 						if (map[target.y][target.x] == 1) {
 							this->fixTarget(map);
 						}
+
 					}
 
 					if (teleporting) {
