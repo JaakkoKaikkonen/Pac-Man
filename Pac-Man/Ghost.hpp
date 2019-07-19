@@ -101,7 +101,7 @@ namespace Game {
 
 		std::vector<Node*> finalPath;
 
-		sf::IntRect teleport1, teleport2;
+		static sf::IntRect teleport1, teleport2;
 
 		sf::Clock teleportTimer;
 

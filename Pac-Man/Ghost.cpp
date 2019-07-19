@@ -8,8 +8,6 @@ namespace Game {
 
 	Ghost::Ghost(gameDataRef data)
 		: data(data),
-		  teleport1(-TILESIZE*2 + TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE),
-		  teleport2(TILESIZE*22 - TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE),
 		  animationRight(ghost, animationFramesRight, 2, GHOST_ANIMATION_TIME),
 		  animationLeft(ghost, animationFramesLeft, 2, GHOST_ANIMATION_TIME), 
 		  animationUp(ghost, animationFramesUp, 2, GHOST_ANIMATION_TIME),
@@ -45,6 +43,8 @@ namespace Game {
 	
 	sf::Clock Ghost::fleeModeTimer = sf::Clock();
 
+	sf::IntRect Ghost::teleport1(-TILESIZE*2 + TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE);
+	sf::IntRect Ghost::teleport2(TILESIZE*22 - TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE);
 
 
 	int Ghost::hScore(Node* a, Node* b) {

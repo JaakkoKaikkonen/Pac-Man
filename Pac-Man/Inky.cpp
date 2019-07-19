@@ -88,7 +88,12 @@ namespace Game {
 
 				} else {
 
-					if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+
+					if (teleporting) {
+
+						target = INKYS_CORNER;
+
+					} else if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
 
 						do {
 							target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
@@ -99,11 +104,8 @@ namespace Game {
 
 					}
 
-					if (teleporting) {
-						target = INKYS_CORNER;
-					}
-
 				}
+
 			}
 
 		} else if ((sf::Vector2i)ghost.getPosition() / TILESIZE == target) {

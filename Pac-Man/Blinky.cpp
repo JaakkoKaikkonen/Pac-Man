@@ -61,9 +61,15 @@ namespace Game {
 						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE + 1);
 					}
 
+					//target = sf::Vector2i((TILESIZE*22 - TILESIZE/4 + TILESIZE) / TILESIZE, (TILESIZE*17 + TILESIZE / 2) / TILESIZE);
+
 				} else {
 
-					if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+					if (teleporting) {
+
+						target = BLINKYS_CORNER;
+
+					} else if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
 
 						do {
 							target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
@@ -72,10 +78,6 @@ namespace Game {
 							}
 						} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
 
-					}
-
-					if (teleporting) {
-						target = BLINKYS_CORNER;
 					}
 
 				}
