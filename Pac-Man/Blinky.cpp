@@ -61,8 +61,6 @@ namespace Game {
 						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE + 1);
 					}
 
-					//target = sf::Vector2i((TILESIZE*22 - TILESIZE/4 + TILESIZE) / TILESIZE, (TILESIZE*17 + TILESIZE / 2) / TILESIZE);
-
 				} else {
 
 					if (teleporting) {

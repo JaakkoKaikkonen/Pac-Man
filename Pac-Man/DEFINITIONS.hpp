@@ -100,3 +100,5 @@ enum class Mode { Chase, Scatter, Flee };
 #define PINKYS_CORNER sf::Vector2i(1, 4)
 #define INKYS_CORNER sf::Vector2i(26, 32)
 #define CLYDES_CORNER sf::Vector2i(1, 32)
+
+#define GHOST_RESET_POSITION sf::Vector2i(14, 14)

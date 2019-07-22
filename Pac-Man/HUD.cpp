@@ -69,7 +69,7 @@ namespace Game {
 		if (highScoreFile.is_open()) {
 			highScoreFile << std::stoi((std::string)highScore.getString());
 		} else {
-			std::cout << "Highscore file not found" << std::endl;
+			std::cout << "Error with highscore file" << std::endl;
 		}
 
 	}

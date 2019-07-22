@@ -15,10 +15,9 @@ namespace Game {
 		  fleeAnimation01(ghost, animationFramesFlee01, 2, GHOST_ANIMATION_TIME),
 		  fleeAnimation02(ghost, animationFramesFlee02, 4, GHOST_ANIMATION_TIME)
 	{
-		closedSet.reserve(100);
-		openSet.reserve(100);
-		finalPath.reserve(50);
-
+		closedSet.reserve(200);
+		openSet.reserve(50);
+		finalPath.reserve(70);
 
 		animationFramesFlee01[0] = GHOST_FLEE_BLUE_01;
 		animationFramesFlee01[1] = GHOST_FLEE_BLUE_02;
@@ -45,6 +44,7 @@ namespace Game {
 
 	sf::IntRect Ghost::teleport1(-TILESIZE*2 + TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE);
 	sf::IntRect Ghost::teleport2(TILESIZE*22 - TILESIZE/4, TILESIZE*17, TILESIZE*8, TILESIZE);
+
 
 
 	int Ghost::hScore(Node* a, Node* b) {
@@ -312,7 +312,7 @@ namespace Game {
 
 
 	void Ghost::reset() {
-		target = sf::Vector2i((TILESIZE * 14) / TILESIZE, (TILESIZE * 14 + TILESIZE / 2) / TILESIZE);
+		target = GHOST_RESET_POSITION;
 		eyes = true;
 	}
 
