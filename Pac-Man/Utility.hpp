@@ -19,4 +19,3 @@ namespace utility {
 	sf::Vector2i clamp(const sf::Vector2i& vector, int minX, int maxX, int minY, int maxY);
 
 }
-
