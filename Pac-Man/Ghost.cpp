@@ -207,6 +207,70 @@ namespace Game {
 		
 	}
 
+
+	void Ghost::setTarget(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]) {
+	
+		if (eyes) {
+
+			if ((sf::Vector2i)ghost.getPosition() / TILESIZE == target) {
+				spot = Dir::Right;
+				go = true;
+				start = false;
+				boxCounter = 0;
+
+			} else if ((int)ghost.getPosition().x / TILESIZE == target.x - 1 && (int)ghost.getPosition().y / TILESIZE == target.y) {
+				spot = Dir::Left;
+				go = true;
+				start = false;
+				boxCounter = 0;
+			}
+
+		} else if (Mode::Chase == mode) {
+			
+			this->chase(pacmanPosition, pacmandir, blinkyPosition, map);
+
+		} else if (Mode::Scatter == mode) {
+
+			this->scatter();
+
+		} else if (Mode::Flee == mode) {
+
+			if (turn) {
+
+				if (Dir::Right == dir) {
+					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE - 1, (int)ghost.getPosition().y / TILESIZE);
+				} else if (Dir::Left == dir) {
+					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE + 1, (int)ghost.getPosition().y / TILESIZE);
+				} else if (Dir::Down == dir) {
+					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE - 1);
+				} else if (Dir::Up == dir) {
+					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE + 1);
+				}
+
+			} else {
+
+				if (teleporting) {
+
+					target = homeCorner;
+
+				} else if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+
+					do {
+						target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
+						if (map[target.y][target.x] == 1) {
+							this->fixTarget(map);
+						}
+					} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
+
+				}
+
+			}
+
+		}
+	
+	}
+
+
 	void Ghost::update() {
 
 		if (!this->isFree()) {

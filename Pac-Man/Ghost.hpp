@@ -38,11 +38,9 @@ namespace Game {
 
 		sf::Sprite& getSprite() { return ghost; }
 
-		bool getEyes() { return eyes;  }
+		bool getEyes() { return eyes; }
 
-		virtual void setTarget(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]) = 0;
-
-		virtual void boxAnimation() = 0;
+		void setTarget(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]);
 
 		virtual bool isFree() = 0;
 
@@ -54,6 +52,12 @@ namespace Game {
 		void fixTarget(const int map[MAP_RES_Y][MAP_RES_X]);
 
 	private:
+		virtual void chase(const sf::Vector2f& pacmanPosition, const Dir& pacmandir, const sf::Vector2f& blinkyPosition, const int map[MAP_RES_Y][MAP_RES_X]) = 0;
+
+		virtual void scatter() = 0;
+
+		virtual void boxAnimation() = 0;
+
 		void animate();
 
 		bool teleport();
@@ -91,6 +95,16 @@ namespace Game {
 		static Mode mode;
 
 		static int counter;
+
+		sf::Vector2i homeCorner;
+
+		int boxCounter = 0;
+
+		bool go = false;
+
+		bool start = true;
+
+		Dir spot;
 
 	private:
 		Node grid[MAP_RES_X][MAP_RES_Y];
