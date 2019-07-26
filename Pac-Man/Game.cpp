@@ -47,7 +47,7 @@ namespace Game {
 	void Game::run() {
 		float newTime, frameTime;
 
-		float currentTime = this->clock.getElapsedTime().asSeconds();
+		float currentTime = clock.getElapsedTime().asSeconds();
 
 		float accumulator = dt;
 
@@ -62,7 +62,7 @@ namespace Game {
 			}
 
 
-			newTime = this->clock.getElapsedTime().asSeconds();
+			newTime = clock.getElapsedTime().asSeconds();
 
 			frameTime = newTime - currentTime;
 
@@ -75,10 +75,10 @@ namespace Game {
 			accumulator += frameTime;
 
 			while (accumulator >= dt) {
-				this->data->state->handleInput();
-				this->data->state->update();
+				data->state->handleInput();
+				data->state->update();
 
-				this->data->state->draw();
+				data->state->draw();
 
 				accumulator -= dt;
 			}
