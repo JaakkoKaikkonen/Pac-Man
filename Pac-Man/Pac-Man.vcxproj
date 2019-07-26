@@ -152,7 +152,6 @@
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Pinky.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +171,6 @@
     <ClInclude Include="Pinky.hpp" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="State.hpp" />
-    <ClInclude Include="StateMachine.hpp" />
     <ClInclude Include="Utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

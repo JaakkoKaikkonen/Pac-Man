@@ -13,10 +13,7 @@ namespace Game {
 
 		playText.setOrigin(playText.getGlobalBounds().width / 2, playText.getGlobalBounds().height / 2);
 		playText.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-	}
 
-
-	void MenuState::init() {
 		data->assets.getSound("Intro").play();
 	}
 
@@ -36,7 +33,7 @@ namespace Game {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || 
 			((sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Mouse::isButtonPressed(sf::Mouse::Right)) &&
 			playText.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(data->window)))) {
-			data->machine.addState(stateRef(new GameState(data)), true);
+			data->newState = new GameState(data);
 		}
 
 	}

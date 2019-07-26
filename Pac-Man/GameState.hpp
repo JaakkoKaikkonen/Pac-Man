@@ -25,8 +25,6 @@ namespace Game {
 		GameState(gameDataRef data);
 		~GameState();
 
-		void init();
-
 		void handleInput();
 		void update();
 		void draw();

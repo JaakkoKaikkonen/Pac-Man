@@ -39,7 +39,7 @@ namespace Game {
 
 		//-------------------------------------------------------------------------------------
 
-		data->machine.addState(stateRef(new MenuState(data)), true);
+		data->state = new MenuState(data);
 
 		this->run();
 	}
@@ -54,7 +54,13 @@ namespace Game {
 		
 		while (this->data->window.isOpen()) {
 
-			this->data->machine.processStateChanges();
+			//Check state changes
+			if (data->newState) {
+				delete data->state;
+				data->state = data->newState;
+				data->newState = nullptr;
+			}
+
 
 			newTime = this->clock.getElapsedTime().asSeconds();
 
@@ -69,10 +75,10 @@ namespace Game {
 			accumulator += frameTime;
 
 			while (accumulator >= dt) {
-				this->data->machine.getActiveState()->handleInput();
-				this->data->machine.getActiveState()->update();
+				this->data->state->handleInput();
+				this->data->state->update();
 
-				this->data->machine.getActiveState()->draw();
+				this->data->state->draw();
 
 				accumulator -= dt;
 			}

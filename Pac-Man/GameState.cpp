@@ -31,6 +31,12 @@ namespace Game {
 		//Set up score sprite
 		scoreText.setOrigin(scoreText.getGlobalBounds().width / 2, scoreText.getGlobalBounds().height / 2);
 		scoreText.setFillColor(sf::Color::Cyan);
+
+		//Setup ghosts
+		ghosts[0] = new Clyde(data);
+		ghosts[1] = new Inky(data);
+		ghosts[2] = new Pinky(data);
+		ghosts[3] = new Blinky(data);
 	}
 
 	GameState::~GameState() {
@@ -39,15 +45,6 @@ namespace Game {
 		}
 	}
 
-	void GameState::init() {
-
-		//Setup ghosts
-		ghosts[0] = new Clyde(data);
-		ghosts[1] = new Inky(data);
-		ghosts[2] = new Pinky(data);
-		ghosts[3] = new Blinky(data);
-
-	}
 
 	void GameState::handleInput() {
 		sf::Event event;
@@ -109,7 +106,7 @@ namespace Game {
 				}
 
 				if (endTimer.getElapsedTime().asSeconds() > 2.0f) {
-					data->machine.addState(stateRef(new MenuState(data)), true);
+					data->newState = new MenuState(data);
 				}
 
 			} else {

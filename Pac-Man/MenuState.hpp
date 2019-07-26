@@ -11,8 +11,6 @@ namespace Game {
 	public:
 		MenuState(gameDataRef data);
 
-		void init();
-
 		void handleInput();
 		void update();
 		void draw();
