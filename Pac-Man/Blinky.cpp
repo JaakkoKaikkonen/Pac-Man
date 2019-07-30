@@ -13,7 +13,8 @@ namespace Game {
 		ghost.setPosition(TILESIZE * 14, TILESIZE * 14 + TILESIZE / 2);
 
 		ghostColor = sf::Color::Red;
-		homeCorner = BLINKYS_CORNER;
+
+		homeCorner = sf::Vector2i(26, 4);
 
 		animationFramesRight[0] = BLINKY_RIGHT_01;
 		animationFramesRight[1] = BLINKY_RIGHT_02;

@@ -32,6 +32,8 @@ namespace Game {
 
 
 	//Init static variables
+	const float Ghost::ghostSpeed = 2.0f;
+
 	int Ghost::counter = 0;
 
 	bool Ghost::turn = false;
@@ -197,7 +199,7 @@ namespace Game {
 				dirVector.y = (float)finalPath[finalPath.size() - 2]->y * TILESIZE - start->y * TILESIZE;
 
 				dirVector /= (float)TILESIZE;
-				dirVector *= GHOST_SPEED;
+				dirVector *= ghostSpeed;
 			} else {
 				dirVector.x = 0;
 				dirVector.y = 0;
@@ -345,10 +347,10 @@ namespace Game {
 		if (teleport1.contains((sf::Vector2i)ghost.getPosition())) {
 			teleporting = true;
 			if (teleportTimer.getElapsedTime().asSeconds() < 3.0f) {
-				ghost.move(GHOST_SPEED, 0.0f);
+				ghost.move(ghostSpeed, 0.0f);
 				return true;
 			}
-			ghost.move(-GHOST_SPEED, 0.0f);
+			ghost.move(-ghostSpeed, 0.0f);
 			if (ghost.getPosition().x + ghost.getGlobalBounds().width < 0) {
 				ghost.setPosition(float(teleport2.left + TILESIZE * 7 + TILESIZE / 2), float(teleport2.top + TILESIZE / 2));
 				teleportTimer.restart();
@@ -359,10 +361,10 @@ namespace Game {
 		if (teleport2.contains((sf::Vector2i)ghost.getPosition())) {
 			teleporting = true;
 			if (teleportTimer.getElapsedTime().asSeconds() < 3.0f) {
-				ghost.move(-GHOST_SPEED, 0.0f);
+				ghost.move(-ghostSpeed, 0.0f);
 				return true;
 			}
-			ghost.move(GHOST_SPEED, 0.0f);
+			ghost.move(ghostSpeed, 0.0f);
 			if (ghost.getPosition().x - ghost.getGlobalBounds().width > SCREEN_WIDTH) {
 				ghost.setPosition(float(teleport1.left + TILESIZE / 2), float(teleport1.top + TILESIZE / 2));
 				teleportTimer.restart();
@@ -457,7 +459,7 @@ namespace Game {
 		counter++;
 
 		//check if new path should be calculated
-		if (counter < TILESIZE / GHOST_SPEED) {
+		if (counter < TILESIZE / ghostSpeed) {
 			return false;
 		} else {
 			counter = 0;

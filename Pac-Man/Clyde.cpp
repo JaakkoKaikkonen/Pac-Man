@@ -12,7 +12,8 @@ namespace Game {
 		ghost.setPosition(TILESIZE * 16, TILESIZE * 17 + TILESIZE / 2);
 
 		ghostColor = sf::Color::Yellow;
-		homeCorner = CLYDES_CORNER;
+
+		homeCorner = sf::Vector2i(1, 32);
 
 		animationFramesRight[0] = CLYDE_RIGHT_01;
 		animationFramesRight[1] = CLYDE_RIGHT_02;

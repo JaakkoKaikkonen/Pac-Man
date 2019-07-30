@@ -31,10 +31,10 @@ namespace Game {
 			//Teleports
 			if (teleport1.contains((int)(pacman.getPosition().x - pacman.getGlobalBounds().width / 2), (int)pacman.getPosition().y)) {
 				if (teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
-					pacman.move(PACMAN_SPEED, 0.0f);
+					pacman.move(pacmanSpeed, 0.0f);
 					return;
 				}
-				pacman.move(-PACMAN_SPEED, 0.0f);
+				pacman.move(-pacmanSpeed, 0.0f);
 				if (pacman.getPosition().x + pacman.getGlobalBounds().width < 0) {
 					pacman.setPosition(teleport2.left + pacman.getGlobalBounds().width, teleport2.top + pacman.getGlobalBounds().height / 2 + 4);
 					teleportTimer.restart();
@@ -44,10 +44,10 @@ namespace Game {
 
 			if (teleport2.contains((int)(pacman.getPosition().x + pacman.getGlobalBounds().width / 2), (int)pacman.getPosition().y)) {
 				if (teleportTimer.getElapsedTime().asSeconds() < 0.4f) {
-					pacman.move(-PACMAN_SPEED, 0.0f);
+					pacman.move(-pacmanSpeed, 0.0f);
 					return;
 				}
-				pacman.move(PACMAN_SPEED, 0.0f);
+				pacman.move(pacmanSpeed, 0.0f);
 				if (pacman.getPosition().x - pacman.getGlobalBounds().width > SCREEN_WIDTH) {
 					pacman.setPosition(teleport1.left + pacman.getGlobalBounds().width + 20, teleport1.top + pacman.getGlobalBounds().height / 2 + 4);
 					teleportTimer.restart();
@@ -68,19 +68,19 @@ namespace Game {
 				switch (dir1) {
 
 				case Dir::Right:
-					pacman.move(PACMAN_SPEED, 0.0f);
+					pacman.move(pacmanSpeed, 0.0f);
 					pacman.setRotation(0.0f);
 					break;
 				case Dir::Left:
-					pacman.move(-PACMAN_SPEED, 0.0f);
+					pacman.move(-pacmanSpeed, 0.0f);
 					pacman.setRotation(180.0f);
 					break;
 				case Dir::Down:
-					pacman.move(0.0f, PACMAN_SPEED);
+					pacman.move(0.0f, pacmanSpeed);
 					pacman.setRotation(90.0f);
 					break;
 				case Dir::Up:
-					pacman.move(0.0f, -PACMAN_SPEED);
+					pacman.move(0.0f, -pacmanSpeed);
 					pacman.setRotation(-90.0f);
 				}
 
@@ -145,7 +145,7 @@ namespace Game {
 				powerTimer.restart();
 			}
 
-			if (powerTimer.getElapsedTime().asSeconds() > PACMAN_POWER_TIME) {
+			if (powerTimer.getElapsedTime().asSeconds() > pacmanPowerTime) {
 				powerOn = false;
 			}
 

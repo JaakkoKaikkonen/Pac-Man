@@ -37,15 +37,16 @@ enum class Dir { Right, Left, Down, Up };
 enum class Mode { Chase, Scatter, Flee };
 
 
+#define PACMAN_START_POS sf::Vector2f(336.0f, 636.0f)
+#define PACMAN_ANIMATION_TIME 0.2f
+
+#define GHOST_RESET_POSITION sf::Vector2i(14, 14)
+#define GHOST_ANIMATION_TIME 0.3f
+
+
 #define PACMAN_01 sf::IntRect(33, 0, 32, 32)
 #define PACMAN_02 sf::IntRect(0, 0, 32, 32)
 #define PACMAN_03 sf::IntRect(66, 0, 32, 32)
-
-#define PACMAN_START_POS sf::Vector2f(336.0f, 636.0f)
-#define PACMAN_ANIMATION_TIME 0.2f
-#define PACMAN_SPEED 3.0f
-#define PACMAN_POWER_TIME 3.7f
-
 
 #define BLINKY_RIGHT_01 sf::IntRect(0, 0, 32, 32)
 #define BLINKY_RIGHT_02 sf::IntRect(37, 0, 32, 32)
@@ -92,13 +93,3 @@ enum class Mode { Chase, Scatter, Flee };
 #define GHOST_EYES_LEFT sf::IntRect(183, 136, 32, 32)
 #define GHOST_EYES_UP sf::IntRect(219, 136, 32, 32)
 #define GHOST_EYES_DOWN sf::IntRect(256, 136, 32, 32)
-
-#define GHOST_ANIMATION_TIME 0.3f
-#define GHOST_SPEED 2.0f
-
-#define BLINKYS_CORNER sf::Vector2i(26, 4)
-#define PINKYS_CORNER sf::Vector2i(1, 4)
-#define INKYS_CORNER sf::Vector2i(26, 32)
-#define CLYDES_CORNER sf::Vector2i(1, 32)
-
-#define GHOST_RESET_POSITION sf::Vector2i(14, 14)

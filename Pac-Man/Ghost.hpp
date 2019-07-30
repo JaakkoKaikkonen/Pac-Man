@@ -69,6 +69,8 @@ namespace Game {
 
 		sf::Sprite ghost;
 
+		
+
 		sf::Color ghostColor = sf::Color::Red;
 
 		sf::Vector2i target;
@@ -85,6 +87,8 @@ namespace Game {
 		bool eyes = false;
 		
 		bool teleporting = false;
+
+		static const float ghostSpeed;
 
 		static bool turn;
 

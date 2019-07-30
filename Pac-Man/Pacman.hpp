@@ -37,6 +37,10 @@ namespace Game {
 
 		sf::Sprite pacman;
 
+		const float pacmanSpeed = 3.0f;
+
+		const float pacmanPowerTime = 3.7f;
+
 		sf::Vector2f previousPos;
 
 		sf::IntRect pacmanAniamtionFrames[4] = { PACMAN_01 , PACMAN_02 , PACMAN_01, PACMAN_03 };
