@@ -306,7 +306,7 @@ namespace Game {
 	void Ghost::animate() {
 	
 		if (Mode::Flee == mode && !eyes) {
-			if (fleeModeTimer.getElapsedTime().asSeconds() < PACMAN_POWER_TIME - 1.5f) {
+			if (fleeModeTimer.getElapsedTime().asSeconds() < 2.2f) {
 				fleeAnimation01.animate();
 				fleeAnimation02.reset();
 			} else {

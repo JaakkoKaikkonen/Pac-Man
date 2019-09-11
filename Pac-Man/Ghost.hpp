@@ -69,8 +69,6 @@ namespace Game {
 
 		sf::Sprite ghost;
 
-		
-
 		sf::Color ghostColor = sf::Color::Red;
 
 		sf::Vector2i target;
