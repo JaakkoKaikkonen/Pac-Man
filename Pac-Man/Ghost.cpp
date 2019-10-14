@@ -237,32 +237,37 @@ namespace Game {
 
 		} else if (Mode::Flee == mode) {
 
-			if (turn) {
+			if (teleporting) {
 
-				if (Dir::Right == dir) {
-					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE - 1, (int)ghost.getPosition().y / TILESIZE);
-				} else if (Dir::Left == dir) {
-					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE + 1, (int)ghost.getPosition().y / TILESIZE);
-				} else if (Dir::Down == dir) {
-					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE - 1);
-				} else if (Dir::Up == dir) {
-					target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE + 1);
-				}
+				target = homeCorner;
 
 			} else {
 
-				if (teleporting) {
+				if (turn) {
 
-					target = homeCorner;
+					if (Dir::Right == dir) {
+						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE - 1, (int)ghost.getPosition().y / TILESIZE);
+					} else if (Dir::Left == dir) {
+						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE + 1, (int)ghost.getPosition().y / TILESIZE);
+					} else if (Dir::Down == dir) {
+						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE - 1);
+					} else if (Dir::Up == dir) {
+						target = sf::Vector2i((int)ghost.getPosition().x / TILESIZE, (int)ghost.getPosition().y / TILESIZE + 1);
+					}
 
-				} else if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+				} else {
 
-					do {
-						target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
-						if (map[target.y][target.x] == 1) {
-							this->fixTarget(map);
-						}
-					} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
+				
+					if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
+
+						do {
+							target = sf::Vector2i(rand() % 25 + 1, rand() % 28 + 4);
+							if (map[target.y][target.x] == 1) {
+								this->fixTarget(map);
+							}
+						} while (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE));
+
+					}
 
 				}
 
