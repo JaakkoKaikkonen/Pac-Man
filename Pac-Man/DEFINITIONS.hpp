@@ -34,6 +34,8 @@
 
 enum class Dir { Right, Left, Down, Up };
 
+enum class TpDir { None, Right, Left };
+
 enum class Mode { Chase, Scatter, Flee };
 
 

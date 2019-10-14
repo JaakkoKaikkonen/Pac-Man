@@ -279,7 +279,7 @@ namespace Game {
 
 			this->boxAnimation();
 
-		} 
+		}
 
 		//Set direction
 		if (dirVector.x > 0) {
@@ -346,31 +346,37 @@ namespace Game {
 
 		if (teleport1.contains((sf::Vector2i)ghost.getPosition())) {
 			teleporting = true;
-			if (teleportTimer.getElapsedTime().asSeconds() < 3.0f) {
-				ghost.move(ghostSpeed, 0.0f);
-				return true;
+			if (tpDir == TpDir::None) {
+				tpDir = TpDir::Left;
 			}
-			ghost.move(-ghostSpeed, 0.0f);
-			if (ghost.getPosition().x + ghost.getGlobalBounds().width < 0) {
-				ghost.setPosition(float(teleport2.left + TILESIZE * 7 + TILESIZE / 2), float(teleport2.top + TILESIZE / 2));
-				teleportTimer.restart();
+			if (tpDir == TpDir::Left) {
+				ghost.move(-ghostSpeed, 0.0f);
+				if (ghost.getPosition().x + ghost.getGlobalBounds().width < 0) {
+					ghost.setPosition(float(teleport2.left + TILESIZE * 7 + TILESIZE / 2), float(teleport2.top + TILESIZE / 2));
+				}
+			} else {
+				ghost.move(ghostSpeed, 0.0f);
 			}
 			return true;
 		}
 
 		if (teleport2.contains((sf::Vector2i)ghost.getPosition())) {
 			teleporting = true;
-			if (teleportTimer.getElapsedTime().asSeconds() < 3.0f) {
-				ghost.move(-ghostSpeed, 0.0f);
-				return true;
+			if (tpDir == TpDir::None) {
+				tpDir = TpDir::Right;
 			}
-			ghost.move(ghostSpeed, 0.0f);
-			if (ghost.getPosition().x - ghost.getGlobalBounds().width > SCREEN_WIDTH) {
-				ghost.setPosition(float(teleport1.left + TILESIZE / 2), float(teleport1.top + TILESIZE / 2));
-				teleportTimer.restart();
+			if (tpDir == TpDir::Right) {
+				ghost.move(ghostSpeed, 0.0f);
+				if (ghost.getPosition().x - ghost.getGlobalBounds().width > SCREEN_WIDTH) {
+					ghost.setPosition(float(teleport1.left + TILESIZE / 2), float(teleport1.top + TILESIZE / 2));
+				}
+			} else {
+				ghost.move(-ghostSpeed, 0.0f);
 			}
 			return true;
-		}
+		} 
+		
+		tpDir = TpDir::None;
 
 		return false;
 

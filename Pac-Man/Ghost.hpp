@@ -111,6 +111,8 @@ namespace Game {
 	private:
 		Node grid[MAP_RES_X][MAP_RES_Y];
 
+		TpDir tpDir = TpDir::None;
+
 		std::vector<Node*> closedSet;
 
 		std::vector<Node*> openSet;
