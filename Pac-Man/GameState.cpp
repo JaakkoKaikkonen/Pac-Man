@@ -13,7 +13,8 @@ namespace Game {
 		: data(data),
 		  map(data->assets.getTexture("Map")),
 		  pacman(data),
-		  hud(data), scoreText("100", data->assets.getFont("Font"), 18)
+		  hud(data),
+		  scoreText("100", data->assets.getFont("Font"), 18)
 	{
 
 		//Setup map
@@ -166,7 +167,7 @@ namespace Game {
 
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 		//Draw grid lines
-		/*sf::Vertex line[2];
+		sf::Vertex line[2];
 		float y = 0;
 		for (int i = 0; i < MAP_RES_Y; i++) {
 			line[0] = sf::Vertex(sf::Vector2f(0.0, y));
@@ -180,7 +181,7 @@ namespace Game {
 			line[1] = sf::Vertex(sf::Vector2f(x, SCREEN_HEIGHT));
 			x += TILESIZE;
 			data->window.draw(line, 2, sf::Lines);
-		}*/
+		}
 		//////////////////////////////////DEBUG////////////////////////////////////////////
 
 		//Draw points

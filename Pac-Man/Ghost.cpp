@@ -257,7 +257,6 @@ namespace Game {
 
 				} else {
 
-				
 					if (target == ((sf::Vector2i)ghost.getPosition() / TILESIZE)) {
 
 						do {
